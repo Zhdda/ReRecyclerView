@@ -16,6 +16,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private PersonAdapter personAdapter;
+    private LineDecorattion lineDecorattion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -23,7 +24,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = ((RecyclerView) findViewById(R.id.recyclerview));
         layoutManager = new LinearLayoutManager(this);
-        recyclerView.addItemDecoration(new LineDecorattion());
+        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
+        lineDecorattion = new LineDecorattion();
+        lineDecorattion.setOrientation(LinearLayoutManager.HORIZONTAL);
+
+        recyclerView.addItemDecoration(lineDecorattion);
+
         recyclerView.setLayoutManager(layoutManager);
         ArrayList<PersonBean> sampleList = PersonDataServer.getSampleList(10);
         personAdapter = new PersonAdapter(this, sampleList);

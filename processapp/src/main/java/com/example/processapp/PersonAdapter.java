@@ -27,7 +27,7 @@ public class PersonAdapter extends RecyclerView.Adapter<PersonViewHolder> {
 
     @Override
     public PersonViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        return new PersonViewHolder(inflater.inflate(R.layout.item_person,parent,false));
+        return new PersonViewHolder(inflater.inflate(R.layout.item_person2,parent,false));
     }
 
     @Override
