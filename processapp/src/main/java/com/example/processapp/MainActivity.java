@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.processapp.data.PersonBean;
 import com.example.processapp.data.PersonDataServer;
+import com.example.processapp.decoration.BitmapItemDecoration;
 import com.example.processapp.decoration.LineDecorattion;
 
 import java.util.ArrayList;
@@ -16,7 +17,7 @@ public class MainActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private LinearLayoutManager layoutManager;
     private PersonAdapter personAdapter;
-    private LineDecorattion lineDecorattion;
+    private BitmapItemDecoration lineDecorattion;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -24,9 +25,12 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = ((RecyclerView) findViewById(R.id.recyclerview));
         layoutManager = new LinearLayoutManager(this);
-        layoutManager.setOrientation(LinearLayoutManager.HORIZONTAL);
-        lineDecorattion = new LineDecorattion();
-        lineDecorattion.setOrientation(LinearLayoutManager.HORIZONTAL);
+        layoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        lineDecorattion = new BitmapItemDecoration();
+        lineDecorattion.setOrientation(LinearLayoutManager.VERTICAL);
+
+        lineDecorattion.setDrawable(getDrawable(R.drawable.timg));
+
 
         recyclerView.addItemDecoration(lineDecorattion);
 
