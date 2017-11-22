@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 
 import com.example.processapp.data.PersonBean;
 import com.example.processapp.data.PersonDataServer;
+import com.example.processapp.decoration.LineDecorattion;
 
 import java.util.ArrayList;
 
@@ -22,9 +23,11 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView = ((RecyclerView) findViewById(R.id.recyclerview));
         layoutManager = new LinearLayoutManager(this);
+        recyclerView.addItemDecoration(new LineDecorattion());
         recyclerView.setLayoutManager(layoutManager);
         ArrayList<PersonBean> sampleList = PersonDataServer.getSampleList(10);
         personAdapter = new PersonAdapter(this, sampleList);
         recyclerView.setAdapter(personAdapter);
+
     }
 }
